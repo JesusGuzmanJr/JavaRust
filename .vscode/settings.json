@@ -1,0 +1,29 @@
+{
+    "cSpell.words": [
+        "actix",
+        "blazingly",
+        "bytecode",
+        "clippy",
+        "createdb",
+        "devel",
+        "epyc",
+        "footguns",
+        "initializer",
+        "jdks",
+        "libexec",
+        "musl",
+        "nightlies",
+        "openjdk",
+        "postgres",
+        "postgresql",
+        "rustc",
+        "rustfmt",
+        "rustup",
+        "servlet",
+        "sqlx",
+        "symlink",
+        "toolchain",
+        "toolchains"
+    ],
+    "java.checkstyle.configuration": "/google_checks.xml"
+}
