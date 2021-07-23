@@ -27,6 +27,11 @@ Rust earned the top spot as the “most-loved” programming language for the fi
 | web framework      | [Apache Tomcat] ([8.5.69]) and [Spring Boot] ([2.5.2]) | [Actix Web] ([3.3.2])                        |
 | package manager    | mvn                                                    | cargo                                        |
 | manifest file      | pom.xml                                                | cargo.toml                                   |
+| operating system   | Fedora 34                                              | Fedora 34                                    |
+| cpu                | 2  vCPU (AMD EPYC 2nd Gen)                             | 2  vCPU (AMD EPYC 2nd Gen)                   |
+| memory             | 2 GB                                                   | 2 GB                                         |
+| disk space         | 40 GB                                                  | 40 GB                                        |
+
 
 [Java SE 8]: https://docs.oracle.com/javase/8
 [OpenJDK 8 8u292-b10]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2021-April/013680.html
@@ -50,10 +55,3 @@ Rust earned the top spot as the “most-loved” programming language for the fi
 [3.3.2]: https://crates.io/crates/actix-web/3.3.2
 
 ---
-### Machine Specs
-|      |                            |
-| ---- | -------------------------- |
-| os   | Fedora 34                  |
-| cpu  | 2  vCPU (AMD EPYC 2nd Gen) |
-| ram  | 2 GB                       |
-| disk | 40 GB                      |

@@ -38,13 +38,13 @@ Install the linter `clippy`.
 ## Development
 Automatically build and run on source changes.
 
-    cargo watch
+    cargo watch -x run
 
 Make a debug build.
 
     cargo build
 
-Run unit tests run.
+Run unit tests.
 
     cargo test
 

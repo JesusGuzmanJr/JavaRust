@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
         "actix",
+        "autowired",
         "blazingly",
         "bytecode",
         "clippy",
+        "codegen",
+        "concat",
         "createdb",
         "devel",
         "epyc",
@@ -16,6 +19,7 @@
         "openjdk",
         "postgres",
         "postgresql",
+        "runtimes",
         "rustc",
         "rustfmt",
         "rustup",
@@ -25,5 +29,5 @@
         "toolchain",
         "toolchains"
     ],
-    "java.checkstyle.configuration": "/google_checks.xml"
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

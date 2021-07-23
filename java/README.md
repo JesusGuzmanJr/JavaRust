@@ -9,7 +9,7 @@ Install the Java development kits. Java 11 is required by the Language Support f
     brew install openjdk@8
     brew install openjdk@11
 
-Open VSCode's settings with `Cmd + Shift + P` → `Preference: Open SEttings (JSON)` and add the following settings
+Open VSCode's settings with `Cmd + Shift + P` → `Preference: Open Settings (JSON)` and add the following settings
 
 ```json
     "java.configuration.runtimes": [
@@ -36,11 +36,15 @@ Install the web server.
 
     brew install tomcat
 ## Development
+Run the program.
+
+    mvn spring-boot:run
+
 Make a build.
 
     mvn compile
 
-Run unit tests run.
+Run unit tests.
 
     mvn test
 
