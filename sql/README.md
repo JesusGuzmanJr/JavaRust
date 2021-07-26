@@ -7,7 +7,6 @@ Install Postgres.
 
     brew install postgresql
 
-
 Create a database within postgres.
 
     createdb car_rentals
@@ -20,7 +19,7 @@ To run migrations, you'll need to install `sqlx-cli`.
 
 Run the following to create new up/down migration files making sure to give your file a descriptive name.
 
-    sqlx migrate add -r <migration_file_name>
+    DATABASE_URL="postgres://localhost:5432/car_rentals" sqlx migrate add -r <migration_file_name>
 
 When you need to run a migration locally.
 

@@ -2,12 +2,15 @@
     "cSpell.words": [
         "actix",
         "autowired",
+        "backtrace",
         "blazingly",
         "bytecode",
+        "chrono",
         "clippy",
         "codegen",
         "concat",
         "createdb",
+        "datetime",
         "devel",
         "epyc",
         "footguns",
@@ -26,6 +29,7 @@
         "servlet",
         "sqlx",
         "symlink",
+        "thiserror",
         "toolchain",
         "toolchains"
     ],

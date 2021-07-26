@@ -1,0 +1,71 @@
+{
+  "db": "PostgreSQL",
+  "f636ad70878a8c32d10b8dea8bc4ee1aad0cf88de97a653c040def65a478f8c1": {
+    "query": "SELECT id, created, updated, username, email, password_hash, status AS \"status!: Status\" FROM account WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 1,
+          "name": "created",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 2,
+          "name": "updated",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 3,
+          "name": "username",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 4,
+          "name": "email",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 5,
+          "name": "password_hash",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 6,
+          "name": "status!: Status",
+          "type_info": {
+            "Custom": {
+              "name": "account_status",
+              "kind": {
+                "Enum": [
+                  "unverified",
+                  "active",
+                  "disabled",
+                  "deleted"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  }
+}

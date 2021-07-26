@@ -1,17 +1,38 @@
 use actix_web::{App, HttpServer};
 
+mod account;
+mod account_endpoint;
+mod account_entity;
+mod account_mapper;
+mod account_repository;
+mod config;
+mod datetime;
+mod error;
 mod info_endpoint;
+mod persistance;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
+    color_backtrace::install();
+    let config = config::app_config();
+
+    // initialize logging
+    let mut log_builder = env_logger::Builder::new();
+    log_builder.parse_filters(&config.logging_directive);
+    log_builder.init();
+
+    // initialize database connection
+    persistance::init().await;
+
+    // initialize server
     HttpServer::new(|| {
         App::new()
             // <response status code> for <path> <remote/proxy ip address> in <seconds>s
             .wrap(actix_web::middleware::Logger::new("%s for %U %a in %Ts"))
             .service(info_endpoint::get_info)
+            .service(account_endpoint::get_account)
     })
-    .bind("localhost:9090")?
+    .bind(format!("{}:{}", config.address, config.port))?
     .run()
     .await
 }
