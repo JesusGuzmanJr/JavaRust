@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Account {
 
     public enum Status {
-        Unverified, Active, Disabled, Deleted
+        unverified, active, disabled, deleted
     }
 
     private UUID id;

@@ -6,7 +6,6 @@ use crate::{
     persistance,
 };
 
-/// Get the account by id.
 pub async fn find_by_id(id: Id) -> Result<Option<AccountEntity>, Error> {
     sqlx::query_as!(
         AccountEntity,

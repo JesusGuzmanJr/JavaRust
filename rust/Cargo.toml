@@ -28,6 +28,7 @@ sqlx = {version = "0.5.5", features = [
 ]}
 thiserror = "1.0.26"
 uuid = {version = "0.8.2", features = ["serde", "v4"]}
+validator = {version = "0.14.0", features = ["derive"]}
 
 [build-dependencies]
 built = {version = "0.5.1", features = ["git2", "chrono"]}

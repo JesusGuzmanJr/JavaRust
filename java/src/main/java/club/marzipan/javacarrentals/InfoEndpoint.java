@@ -27,11 +27,11 @@ public class InfoEndpoint {
         Properties properties = new Properties();
         properties.load(getClass().getClassLoader().getResourceAsStream("git.properties"));
         info = new HashMap<>();
-        info.put("app_name", buildProperties.getArtifact());
+        info.put("appName", buildProperties.getArtifact());
         info.put("version", String.valueOf(properties.get("git.build.version")));
-        info.put("git_branch", String.valueOf(properties.get("git.branch")));
-        info.put("git_commit_hash", String.valueOf(properties.get("git.commit.id")));
-        info.put("build_time_utc", buildProperties.get("time"));
+        info.put("gitBranch", String.valueOf(properties.get("git.branch")));
+        info.put("gitCommitHash", String.valueOf(properties.get("git.commit.id")));
+        info.put("buildTimeUtc", buildProperties.get("time"));
     }
 
     @GetMapping("/info")
