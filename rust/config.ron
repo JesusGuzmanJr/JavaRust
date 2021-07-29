@@ -1,7 +1,7 @@
 (
     address: "localhost",
     port: 9090,
-    logging_directive: "info,server=trace,actix_web=debug",
+    logging_directive: "info,rust-car-service=trace,actix_web=debug",
     graceful_shutdown_timeout_sec: 3,
     max_payload_size_bytes: 4096,
     postgres_connection_pool_size: 1,

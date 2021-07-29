@@ -5,29 +5,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @ControllerAdvice
 public class ErrorHandler {
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    private static final Logger logger = LoggerFactory.getLogger(ErrorHandler.class);
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handleException(Exception ex) {
+        logger.error(ex.getMessage());
+        return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Object handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public ResponseEntity<Map<String, List<String>>> handleValidationExceptions(
+            MethodArgumentNotValidException methodArgumentNotValidException) {
+
         Map<String, List<String>> errors = new HashMap<>();
 
-        ex.getBindingResult().getFieldErrors().forEach((error) -> {
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            List<String> messages = errors.computeIfAbsent(fieldName, key -> new ArrayList<>());
-            messages.add(errorMessage);
+        methodArgumentNotValidException.getBindingResult().getFieldErrors().forEach((field_error) -> {
+            List<String> messages = errors.computeIfAbsent(field_error.getField(), field -> new ArrayList<>());
+            messages.add(field_error.getDefaultMessage());
         });
-        return errors;
+        logger.warn(methodArgumentNotValidException.getMessage());
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }
