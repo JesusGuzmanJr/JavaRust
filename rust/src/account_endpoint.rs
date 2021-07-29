@@ -13,11 +13,10 @@ use crate::{
 
 #[get("/account/{id}")]
 async fn get_account(Path(id): Path<Uuid>) -> Result<HttpResponse, Error> {
-    let response = match account_repository::find_by_id(id.into()).await? {
+    Ok(match account_repository::find_by_id(id.into()).await? {
         Some(account) => HttpResponse::Ok().json::<Account>(account.into()),
         None => HttpResponse::NotFound().finish(),
-    };
-    Ok(response)
+    })
 }
 
 #[post("/account")]
