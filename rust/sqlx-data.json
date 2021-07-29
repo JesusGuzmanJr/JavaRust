@@ -1,5 +1,35 @@
 {
   "db": "PostgreSQL",
+  "d1ef8dbc8a66c3c4d9339767b25f88e0eb658bcc24ad32645747733b094a34e0": {
+    "query": "INSERT INTO account VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Timestamptz",
+          "Timestamptz",
+          "Text",
+          "Text",
+          "Text",
+          {
+            "Custom": {
+              "name": "account_status",
+              "kind": {
+                "Enum": [
+                  "unverified",
+                  "active",
+                  "disabled",
+                  "deleted"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "nullable": []
+    }
+  },
   "f636ad70878a8c32d10b8dea8bc4ee1aad0cf88de97a653c040def65a478f8c1": {
     "query": "SELECT id, created, updated, username, email, password_hash, status AS \"status!: Status\" FROM account WHERE id = $1",
     "describe": {

@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use actix_web::{HttpResponse, ResponseError};
+use actix_web::{http::header::ContentType, HttpResponse, ResponseError};
 
 #[derive(thiserror::Error, Debug)]
 pub enum Error {
@@ -16,7 +16,9 @@ impl ResponseError for Error {
         match self {
             Error::PersistanceError(_) => {
                 log::error!("{:#?}", self);
-                HttpResponse::InternalServerError().body(self.to_string())
+                HttpResponse::InternalServerError()
+                    .set(ContentType::plaintext())
+                    .body(self.to_string())
             }
             Error::ValidationErrors(validation_errors) => {
                 let mut errors = HashMap::new();

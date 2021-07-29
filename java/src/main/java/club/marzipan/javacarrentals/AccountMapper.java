@@ -9,13 +9,24 @@ public class AccountMapper {
             return null;
         }
         Account account = new Account();
-        account.setId(accountEntity.id);
-        account.setCreated(accountEntity.created);
-        account.setUpdated(accountEntity.updated);
-        account.setUsername(accountEntity.username);
-        account.setEmail(accountEntity.email);
-        account.setPasswordHash(accountEntity.passwordHash);
-        account.setStatus(accountEntity.status);
+        account.id = accountEntity.id;
+        account.created = accountEntity.created;
+        account.updated = accountEntity.updated;
+        account.username = accountEntity.username;
+        account.email = accountEntity.email;
+        account.passwordHash = accountEntity.passwordHash;
+        if (accountEntity.status != null) {
+            switch (accountEntity.status) {
+                case active:
+                    account.status = Account.Status.active;
+                case unverified:
+                    account.status = Account.Status.unverified;
+                case disabled:
+                    account.status = Account.Status.disabled;
+                case deleted:
+                    account.status = Account.Status.deleted;
+            }
+        }
         return account;
     }
 }

@@ -12,8 +12,8 @@ pub struct AccountEntity {
     pub status: Status,
 }
 
-#[derive(Debug, sqlx::Type)]
-#[sqlx(type_name = "ACCOUNT_STATUS")]
+#[derive(sqlx::Type)]
+#[sqlx(type_name = "ACCOUNT_STATUS", rename_all = "lowercase")]
 pub enum Status {
     Unverified,
     Active,

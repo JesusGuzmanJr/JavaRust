@@ -1,12 +1,13 @@
 package club.marzipan.javacarrentals;
 
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,15 +29,27 @@ public class AccountEndpoint {
         Optional<AccountEntity> accountEntity = accountRepository.findById(id);
         if (accountEntity.isPresent()) {
             Account account = accountMapper.mapEntityToApi(accountEntity.get());
-            return new ResponseEntity<>(account, HttpStatus.OK);
+            return ResponseEntity.ok().body(account);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/account")
     public ResponseEntity<Account> createAccount(@Valid @RequestBody CreateAccount createAccount) {
-        return new ResponseEntity<>(null, HttpStatus.NOT_IMPLEMENTED);
+        ZonedDateTime now = ZonedDateTime.now().withZoneSameInstant(ZoneOffset.UTC);
+
+        AccountEntity accountEntity = new AccountEntity();
+        accountEntity.id = UUID.randomUUID();
+        accountEntity.created = now;
+        accountEntity.updated = now;
+        accountEntity.username = createAccount.username;
+        accountEntity.email = createAccount.email;
+        accountEntity.passwordHash = "";
+        accountEntity.status = AccountEntity.Status.unverified;
+
+        accountRepository.saveAndFlush(accountEntity);
+        return ResponseEntity.ok().body(accountMapper.mapEntityToApi(accountEntity));
     }
 
 }
