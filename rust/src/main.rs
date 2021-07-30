@@ -10,6 +10,7 @@ mod create_account;
 mod datetime;
 mod error_handler;
 mod info_endpoint;
+mod password_hasher;
 mod persistance;
 
 #[actix_web::main]
@@ -25,6 +26,9 @@ async fn main() -> std::io::Result<()> {
 
     // initialize database connection
     persistance::init().await;
+
+    // init password hasher
+    password_hasher::init();
 
     // initialize server
     HttpServer::new(|| {

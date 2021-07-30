@@ -8,7 +8,7 @@ use validator::Validate;
 
 use crate::{
     account::Account, account_entity, account_entity::AccountEntity, account_repository,
-    create_account::CreateAccount, error_handler::Error,
+    create_account::CreateAccount, error_handler::Error, password_hasher,
 };
 
 #[get("/account/{id}")]
@@ -25,13 +25,17 @@ async fn create_account(Json(create_account): Json<CreateAccount>) -> Result<Htt
 
     let now = chrono::Utc::now();
 
+    let password_salt = password_hasher::create_salt();
+    let password_hash = password_hasher::hash(&create_account.password, &password_salt)?;
+
     let account_entity = AccountEntity {
         id: Uuid::new_v4(),
         created: now,
         updated: now,
-        username: create_account.username.into(),
-        email: create_account.email.into(),
-        password_hash: String::new().into(),
+        username: create_account.username,
+        email: create_account.email,
+        password_hash: password_hash.into(),
+        password_salt: password_salt.into(),
         status: account_entity::Status::Unverified,
     };
 

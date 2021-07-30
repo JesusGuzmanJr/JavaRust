@@ -24,6 +24,9 @@ public class AccountEndpoint {
     @Autowired
     private AccountMapper accountMapper;
 
+    @Autowired
+    private PasswordHasher passwordHasher;
+
     @GetMapping("/account/{id}")
     public ResponseEntity<Account> getAccount(@PathVariable UUID id) {
         Optional<AccountEntity> accountEntity = accountRepository.findById(id);
@@ -39,14 +42,18 @@ public class AccountEndpoint {
     public ResponseEntity<Account> createAccount(@Valid @RequestBody CreateAccount createAccount) {
         ZonedDateTime now = ZonedDateTime.now().withZoneSameInstant(ZoneOffset.UTC);
 
+        byte[] passwordSalt = passwordHasher.createSalt();
+        byte[] passwordHash = passwordHasher.hash(createAccount.getPassword(), passwordSalt);
+
         AccountEntity accountEntity = new AccountEntity();
-        accountEntity.id = UUID.randomUUID();
-        accountEntity.created = now;
-        accountEntity.updated = now;
-        accountEntity.username = createAccount.username;
-        accountEntity.email = createAccount.email;
-        accountEntity.passwordHash = "";
-        accountEntity.status = AccountEntity.Status.unverified;
+        accountEntity.setId(UUID.randomUUID());
+        accountEntity.setCreated(now);
+        accountEntity.setUpdated(now);
+        accountEntity.setUsername(createAccount.getUsername());
+        accountEntity.setEmail(createAccount.getEmail());
+        accountEntity.setPasswordHash(passwordHash);
+        accountEntity.setPasswordSalt(passwordSalt);
+        accountEntity.setStatus(AccountEntity.Status.unverified);
 
         accountRepository.saveAndFlush(accountEntity);
         return ResponseEntity.ok().body(accountMapper.mapEntityToApi(accountEntity));

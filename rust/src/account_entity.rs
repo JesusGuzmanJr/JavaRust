@@ -8,7 +8,8 @@ pub struct AccountEntity {
     pub updated: Datetime,
     pub username: String,
     pub email: String,
-    pub password_hash: String,
+    pub password_hash: Vec<u8>,
+    pub password_salt: Vec<u8>,
     pub status: Status,
 }
 

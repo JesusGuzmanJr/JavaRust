@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS account (
     CHECK (octet_length(username) >= 8),
     email TEXT NOT NULL UNIQUE,
     CHECK (octet_length(email) <= 64),
-    password_hash TEXT NOT NULL,
+    password_hash BYTEA NOT NULL,
+    password_salt BYTEA NOT NULL,
     status ACCOUNT_STATUS NOT NULL
 );

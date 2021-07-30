@@ -9,25 +9,26 @@ public class AccountMapper {
             return null;
         }
         Account account = new Account();
-        account.id = accountEntity.id;
-        account.created = accountEntity.created;
-        account.updated = accountEntity.updated;
-        account.username = accountEntity.username;
-        account.email = accountEntity.email;
-        account.passwordHash = accountEntity.passwordHash;
-        if (accountEntity.status != null) {
-            switch (accountEntity.status) {
+        account.setId(accountEntity.getId());
+        account.setCreated(accountEntity.getCreated());
+        account.setUpdated(accountEntity.getUpdated());
+        account.setUsername(accountEntity.getUsername());
+        account.setEmail(accountEntity.getEmail());
+        account.setPasswordHash(accountEntity.getPasswordHash());
+        account.setPasswordSalt(accountEntity.getPasswordSalt());
+        if (accountEntity.getStatus() != null) {
+            switch (accountEntity.getStatus()) {
                 case active:
-                    account.status = Account.Status.active;
+                    account.setStatus(Account.Status.active);
                     break;
                 case unverified:
-                    account.status = Account.Status.unverified;
+                    account.setStatus(Account.Status.unverified);
                     break;
                 case disabled:
-                    account.status = Account.Status.disabled;
+                    account.setStatus(Account.Status.disabled);
                     break;
                 case deleted:
-                    account.status = Account.Status.deleted;
+                    account.setStatus(Account.Status.deleted);
                     break;
             }
         }

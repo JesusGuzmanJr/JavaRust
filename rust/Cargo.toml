@@ -8,13 +8,16 @@ version = "0.1.0"
 
 [dependencies]
 actix-web = {version = "3.3.2", features = ["rustls"]}
-argon2 = "0.2"
+argon2 = "0.2.2"
+base64 = "0.13.0"
+base64-serde = "0.6.1"
 chrono = {version = "0.4.19", features = ["serde"]}
 color-backtrace = "0.5.0"
 derive_more = "0.99.16"
 env_logger = "0.9.0"
 log = "0.4.14"
 once_cell = "1.8.0"
+rand_core = "0.6.3"
 ron = "0.6.4"
 serde = "1.0.126"
 serde_json = "1.0.64"

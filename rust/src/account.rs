@@ -1,7 +1,9 @@
+use crate::datetime::Datetime;
+use base64_serde::base64_serde_type;
 use derive_more::{Display, From, Into};
 use serde::Serialize;
 
-use crate::datetime::Datetime;
+base64_serde_type!(Base64UrlSafe, base64::URL_SAFE);
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -12,6 +14,7 @@ pub struct Account {
     pub username: Username,
     pub email: Email,
     pub password_hash: PasswordHash,
+    pub password_salt: PasswordSalt,
     pub status: Status,
 }
 
@@ -25,7 +28,10 @@ pub struct Username(pub String);
 pub struct Email(pub String);
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, From, Into)]
-pub struct PasswordHash(pub String);
+pub struct PasswordHash(#[serde(with = "Base64UrlSafe")] pub Vec<u8>);
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, From, Into)]
+pub struct PasswordSalt(#[serde(with = "Base64UrlSafe")] pub Vec<u8>);
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, From, Display)]
 #[serde(rename_all = "lowercase")]

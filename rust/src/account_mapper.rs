@@ -12,6 +12,7 @@ impl From<AccountEntity> for Account {
             username: account_entity.username.into(),
             email: account_entity.email.into(),
             password_hash: account_entity.password_hash.into(),
+            password_salt: account_entity.password_salt.into(),
             status: account_entity.status.into(),
         }
     }

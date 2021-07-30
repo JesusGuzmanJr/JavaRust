@@ -12,4 +12,8 @@ pub struct CreateAccount {
     #[validate(length(max = 64, message = "length must be 64 bytes or less"))]
     #[serde(default)]
     pub email: String,
+
+    #[validate(length(min = 8, max = 64, message = "length must be 8 to 64 bytes"))]
+    #[serde(default)]
+    pub password: String,
 }

@@ -1,37 +1,7 @@
 {
   "db": "PostgreSQL",
-  "d1ef8dbc8a66c3c4d9339767b25f88e0eb658bcc24ad32645747733b094a34e0": {
-    "query": "INSERT INTO account VALUES ($1, $2, $3, $4, $5, $6, $7)",
-    "describe": {
-      "columns": [],
-      "parameters": {
-        "Left": [
-          "Uuid",
-          "Timestamptz",
-          "Timestamptz",
-          "Text",
-          "Text",
-          "Text",
-          {
-            "Custom": {
-              "name": "account_status",
-              "kind": {
-                "Enum": [
-                  "unverified",
-                  "active",
-                  "disabled",
-                  "deleted"
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "nullable": []
-    }
-  },
-  "f636ad70878a8c32d10b8dea8bc4ee1aad0cf88de97a653c040def65a478f8c1": {
-    "query": "SELECT id, created, updated, username, email, password_hash, status AS \"status!: Status\" FROM account WHERE id = $1",
+  "360fbbef2040c6423e478cd3fa8a0a94c27137f475e9350930017652c19ed2e2": {
+    "query": "SELECT id, created, updated, username, email, password_hash, password_salt, status AS \"status!: Status\" FROM account WHERE id = $1",
     "describe": {
       "columns": [
         {
@@ -62,10 +32,15 @@
         {
           "ordinal": 5,
           "name": "password_hash",
-          "type_info": "Text"
+          "type_info": "Bytea"
         },
         {
           "ordinal": 6,
+          "name": "password_salt",
+          "type_info": "Bytea"
+        },
+        {
+          "ordinal": 7,
           "name": "status!: Status",
           "type_info": {
             "Custom": {
@@ -94,8 +69,40 @@
         false,
         false,
         false,
+        false,
         false
       ]
+    }
+  },
+  "f87ecf392f7f59ced9cc3272a4291de32dcb6a6e0c5232fc5b81c93a8d53ecf2": {
+    "query": "INSERT INTO account VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Timestamptz",
+          "Timestamptz",
+          "Text",
+          "Text",
+          "Bytea",
+          "Bytea",
+          {
+            "Custom": {
+              "name": "account_status",
+              "kind": {
+                "Enum": [
+                  "unverified",
+                  "active",
+                  "disabled",
+                  "deleted"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "nullable": []
     }
   }
 }

@@ -13,6 +13,16 @@ pub enum Error {
 
     #[error("Persistance error: `{0:?}`")]
     PersistanceError(#[from] sqlx::Error),
+
+    #[error("Password hasher error")]
+    PasswordHasherError,
+}
+
+impl From<argon2::password_hash::Error> for Error {
+    fn from(error: argon2::password_hash::Error) -> Error {
+        log::error!("{:#?}", error);
+        Error::PasswordHasherError
+    }
 }
 
 impl ResponseError for Error {
@@ -72,6 +82,8 @@ impl ResponseError for Error {
                     .set(ContentType::plaintext())
                     .body(message)
             }
+
+            _ => HttpResponse::InternalServerError().finish(),
         }
     }
 }
