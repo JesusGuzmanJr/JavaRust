@@ -9,31 +9,37 @@ static CONFIG: OnceCell<Config> = OnceCell::new();
 
 #[derive(Deserialize)]
 pub struct Config {
+    /// Enable custom logging; acceptable directive must follow the following
+    /// form https://docs.rs/env_logger/0.8.3/env_logger/index.html#enabling-logging.
+    pub logging_directive: String,
+
     /// The IPv4 address to listen to.
     pub address: String,
 
     /// The tcp port to bind to.
     pub port: u16,
 
-    /// Enable custom logging; acceptable directive must follow the following
-    /// form https://docs.rs/env_logger/0.8.3/env_logger/index.html#enabling-logging.
-    pub logging_directive: String,
-
-    /// The number of seconds for workers to shutdown gracefully.
-    pub graceful_shutdown_timeout_sec: u64,
-
     /// The maximum size of an acceptable http request payload before responding
     /// with an error.
     pub max_payload_size_bytes: usize,
 
-    /// The maximum number of active postgres connections to pool.
-    pub postgres_connection_pool_size: u32,
-
-    /// The postgres connection timeout in seconds.
-    pub postgres_connection_timeout_sec: u64,
+    /// The number of seconds for workers to shutdown gracefully.
+    pub graceful_shutdown_timeout_sec: u64,
 
     /// The Postgres connection uri.
-    pub postgres_connection_uri: String,
+    pub postgres_uri: String,
+
+    /// The maximum number of active postgres connections to pool.
+    pub postgres_max_pool_size: u32,
+
+    /// The minimum number of active postgres connections to maintain in the pool.
+    pub postgres_min_pool_size: u32,
+
+    // The maximum lifetime of a connection.
+    pub postgres_max_life_time_minutes: u64,
+
+    /// The Postgres connection timeout in seconds.
+    pub postgres_timeout_sec: u64,
 }
 
 fn init() -> Config {

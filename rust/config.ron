@@ -1,10 +1,18 @@
 (
+    // logging
+    logging_directive: "info,rust-car-service=trace",
+
+    // http
     address: "localhost",
     port: 9090,
-    logging_directive: "info,rust-car-service=trace,actix_web=debug",
-    graceful_shutdown_timeout_sec: 3,
     max_payload_size_bytes: 4096,
-    postgres_connection_pool_size: 1,
-    postgres_connection_timeout_sec: 1,
-    postgres_connection_uri: "postgres://localhost:5432/car_rentals",
+    graceful_shutdown_timeout_sec: 3,
+
+    // database
+    postgres_uri: "postgres://hattie.db.elephantsql.com/emmfovaj?sslmode=require&user=emmfovaj&password=XVnuN0br7UusH_El55gxWHEnkxZ-ZFfq",
+    postgres_max_pool_size: 2,
+    postgres_min_pool_size: 2,
+    postgres_max_life_time_minutes: 10,
+    postgres_timeout_sec: 3,
+
 )

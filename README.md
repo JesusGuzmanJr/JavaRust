@@ -20,8 +20,8 @@ Rust earned the top spot as the “most-loved” programming language for the fi
 | ------------------ | ------------------------------------------------------ | -------------------------------------------- |
 | domain name        | java-car-rentals.marzipan.club                         | rust-car-rentals.marzipan.club               |
 | health endpoint    | https://java-car-rentals.marzipan.club/health          | https://rust-car-rental.marzipan.club/health |
-| language           | [Java SE 8] ([OpenJDK 8 8u292-b10])                    | [Rust 2018] ([1.53.0])                       |
-| compiler           | java-1.8.0-openjdk-devel                               | rustc 1.53.0 (53cb7b09b 2021-06-17)          |
+| language           | [Java SE 8] ([OpenJDK 8 8u292-b10])                    | [Rust 2018] ([1.54.0])                       |
+| compiler           | java-1.8.0-openjdk-devel                               | rustc 1.54.0 (a178d0322 2021-07-26)          |
 | compilation target | java bytecode 52.0                                     | x86_64-unknown-linux-musl                    |
 | runtime            | [OpenJDK] ([java-1.8.0-openjdk])                       | [Tokio] ([0.2.25])                           |
 | web framework      | [Apache Tomcat] ([8.5.69]) and [Spring Boot] ([2.5.2]) | [Actix Web] ([3.3.2])                        |
