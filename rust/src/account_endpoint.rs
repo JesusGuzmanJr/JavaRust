@@ -7,8 +7,12 @@ use uuid::Uuid;
 use validator::Validate;
 
 use crate::{
-    account::Account, account_entity, account_entity::AccountEntity, account_repository,
-    create_account::CreateAccount, error_handler::Error, password_hasher,
+    account::Account,
+    account_entity::{AccountEntity, Status::Unverified},
+    account_repository,
+    create_account::CreateAccount,
+    error_handler::Error,
+    password_hasher,
 };
 
 #[get("/account/{id}")]
@@ -36,7 +40,7 @@ async fn create_account(Json(create_account): Json<CreateAccount>) -> Result<Htt
         email: create_account.email,
         password_hash: password_hash.into(),
         password_salt: password_salt.into(),
-        status: account_entity::Status::Unverified,
+        status: Unverified,
     };
 
     account_repository::save_and_flush(&account_entity).await?;

@@ -33,7 +33,6 @@ Install the linter `clippy`.
 
     rustup component add clippy
 
-- Install docker: https://docs.docker.com/docker-for-mac/install/
 
 ## Development
 Automatically build and run on source changes.
@@ -59,11 +58,3 @@ Clear build artifacts.
 Check for outdated dependencies.
 
     cargo outdated
-
-Make a production build image.
-
-    docker build -t rust-car-rentals:latest
-
-Run an ephemeral docker container.
-
-    docker run --rm -it rust-car-rentals:latest

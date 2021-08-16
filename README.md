@@ -16,28 +16,25 @@ Rust earned the top spot as the “most-loved” programming language for the fi
 
 ### Stack Comparison
 
-| Stack              | Java                                                   | Rust                                         |
-| ------------------ | ------------------------------------------------------ | -------------------------------------------- |
-| domain name        | java-car-rentals.marzipan.club                         | rust-car-rentals.marzipan.club               |
-| health endpoint    | https://java-car-rentals.marzipan.club/health          | https://rust-car-rental.marzipan.club/health |
-| language           | [Java SE 8] ([OpenJDK 8 8u292-b10])                    | [Rust 2018] ([1.54.0])                       |
-| compiler           | java-1.8.0-openjdk-devel                               | rustc 1.54.0 (a178d0322 2021-07-26)          |
-| compilation target | java bytecode 52.0                                     | x86_64-unknown-linux-musl                    |
-| runtime            | [OpenJDK] ([java-1.8.0-openjdk])                       | [Tokio] ([0.2.25])                           |
-| web framework      | [Apache Tomcat] ([8.5.69]) and [Spring Boot] ([2.5.2]) | [Actix Web] ([3.3.2])                        |
-| package manager    | mvn                                                    | cargo                                        |
-| manifest file      | pom.xml                                                | cargo.toml                                   |
-| operating system   | Fedora 34                                              | Fedora 34                                    |
-| cpu                | 2  vCPU (AMD EPYC 2nd Gen)                             | 2  vCPU (AMD EPYC 2nd Gen)                   |
-| memory             | 2 GB                                                   | 2 GB                                         |
-| disk space         | 40 GB                                                  | 40 GB                                        |
+| Stack              | Java                                                   | Rust                                |
+| ------------------ | ------------------------------------------------------ | ----------------------------------- |
+| domain name        | java.marzipan.club                                     | rust.marzipan.club                  |
+| health endpoint    | https://java.marzipan.club/health                      | https://rust.marzipan.club/health   |
+| language           | [Java SE 8] ([OpenJDK 8 8u292-b10])                    | [Rust 2018] ([1.54.0])              |
+| compiler           | javac 1.8.0_302                                        | rustc 1.54.0 (a178d0322 2021-07-26) |
+| target             | java bytecode 52.0                                     | stable-x86_64-unknown-linux-gnu     |
+| runtime            | [OpenJDK] ([java-1.8.0-openjdk])                       | [Tokio] ([0.2.25])                  |
+| web framework      | [Apache Tomcat] ([8.5.69]) and [Spring Boot] ([2.5.2]) | [Actix Web] ([3.3.2])               |
+| package manager    | mvn                                                    | cargo                               |
+| manifest file      | [pom.xml]                                              | [cargo.toml]                        |
+| configuration file | [application.properties]                               | [config.ron]                        |
 
 
 [Java SE 8]: https://docs.oracle.com/javase/8
 [OpenJDK 8 8u292-b10]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2021-April/013680.html
 
 [Rust 2018]: https://www.rust-lang.org
-[1.53.0]: https://blog.rust-lang.org/2021/06/17/Rust-1.53.0.html
+[1.54.0]: https://blog.rust-lang.org/2021/07/29/Rust-1.54.0.html
 
 [OpenJDK]: https://openjdk.java.net
 [java-1.8.0-openjdk]: https://openjdk.java.net/install
@@ -54,4 +51,18 @@ Rust earned the top spot as the “most-loved” programming language for the fi
 [Actix Web]: https://actix.rs
 [3.3.2]: https://crates.io/crates/actix-web/3.3.2
 
+[pom.xml]: java/pom.xml
+[cargo.toml]: rust/cargo.toml
+
+[application.properties]: java/src/main/resources/application.properties
+[config.ron]: rust/config.ron
+
+
+| Server Specs per Stack |                                  |
+| ---------------------- | -------------------------------- |
+| operating system       | Fedora 34                        |
+| cpu                    | 2  vCPU cores (AMD EPYC 2nd Gen) |
+| memory                 | 2 GB RAM                         |
+| disk space             | 40 GB NVMe                       |
+| cost                   | $50 per year                     |
 ---

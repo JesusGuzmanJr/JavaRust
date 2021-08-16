@@ -1,4 +1,4 @@
-package club.marzipan.carrentals;
+package club.marzipan.javacarrentals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

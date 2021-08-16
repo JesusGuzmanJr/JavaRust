@@ -1,3 +1,5 @@
+use std::time::Duration;
+
 use once_cell::sync::OnceCell;
 
 type Pool = sqlx::Pool<sqlx::Postgres>;
@@ -7,8 +9,8 @@ static POOL: OnceCell<Pool> = OnceCell::new();
 pub async fn init() {
     let config = crate::config::app_config();
 
-    let connection_timeout = std::time::Duration::new(config.postgres_timeout_sec, 0);
-    let max_lifetime = std::time::Duration::new(config.postgres_max_life_time_minutes * 60, 0);
+    let connection_timeout = Duration::new(config.postgres_timeout_sec, 0);
+    let max_lifetime = Duration::new(config.postgres_max_life_time_minutes * 60, 0);
 
     // panic if connection pool can't be created
     let pool = sqlx::postgres::PgPoolOptions::new()

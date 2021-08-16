@@ -17,6 +17,7 @@
         "footguns",
         "hasher",
         "initializer",
+        "javac",
         "jdks",
         "libexec",
         "musl",

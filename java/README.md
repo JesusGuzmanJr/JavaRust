@@ -35,6 +35,7 @@ Install the package manager.
 Install the web server.
 
     brew install tomcat
+
 ## Development
 Run the program.
 
@@ -55,11 +56,3 @@ Make a production build.
 Clear build artifacts.
 
     mvn clean
-
-Make a production build image.
-
-    docker build -t java-car-rentals:latest
-
-Run an ephemeral docker container.
-
-    docker run --rm -it java-car-rentals:latest
