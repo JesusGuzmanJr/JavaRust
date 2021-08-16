@@ -9,7 +9,7 @@ Many companies use Java for its ease-of-use and mature libraries.
 Java's strongest feature is its object-oriented paradigm that enables developers to model their business logic as a hierarchy of objects.
 
 ### 🦀 Why Rust?
-Rust earned the top spot as the “most-loved” programming language for the fifth consecutive year of [Stack Overflow’s developer survey]. The Rust ecosystem has recently seen an explosion in adoption with backing from [major companies]. Rust's most unique feature is the borrow checker, a compilation step that validates references and reclaims inaccessible memory thereby eliminating the need for a runtime garbage collector. This enables Rust programs to be blazingly fast and memory-efficient.
+Rust earned the top spot as the “most-loved” programming language for the sixth consecutive year of [Stack Overflow’s developer survey]. The Rust ecosystem has recently seen an explosion in adoption with backing from [major companies]. Rust's most unique feature is the borrow checker, a compilation step that validates references and reclaims inaccessible memory thereby eliminating the need for a runtime garbage collector. This enables Rust programs to be blazingly fast and memory-efficient.
 
 [Stack Overflow’s developer survey]: https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much/
 [major companies]: https://foundation.rust-lang.org/members/
