@@ -3,7 +3,7 @@
     logging_directive: "info,rust-car-service=trace",
 
     // http
-    address: "localhost",
+    address: "0.0.0.0",
     port: 80,
     max_payload_size_bytes: 4096,
     graceful_shutdown_timeout_sec: 3,
