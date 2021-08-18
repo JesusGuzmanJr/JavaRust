@@ -26,8 +26,8 @@ pub struct Config {
     /// The number of seconds for workers to shutdown gracefully.
     pub graceful_shutdown_timeout_sec: u64,
 
-    /// The Postgres connection uri.
-    pub postgres_uri: String,
+    /// The environmental variable name holding the Postgres connection uri.
+    pub postgres_uri_env_var_name: String,
 
     /// The maximum number of active postgres connections to pool.
     pub postgres_max_pool_size: u32,
