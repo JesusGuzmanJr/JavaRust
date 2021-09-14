@@ -8,6 +8,7 @@ mod account_repository;
 mod config;
 mod cost;
 mod cost_entity;
+mod cost_mapper;
 mod cost_repository;
 mod create_account;
 mod date_time;
@@ -17,9 +18,11 @@ mod password_hasher;
 mod persistance;
 mod reservation;
 mod reservation_entity;
+mod reservation_mapper;
 mod reservation_repository;
 mod vehicle;
 mod vehicle_entity;
+mod vehicle_mapper;
 mod vehicle_repository;
 
 #[actix_web::main]

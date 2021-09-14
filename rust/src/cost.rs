@@ -11,8 +11,8 @@ pub struct Cost {
     pub id: Id,
     pub vehicle_class: Option<VehicleClass>,
     pub vehicle_id: Option<VehicleId>,
-    pub usd_cents: i64,
-    pub date_time: DateTime,
+    pub usd_cents: i32,
+    pub date: DateTime,
 }
 
 #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash, Serialize, From, Into, Display)]
