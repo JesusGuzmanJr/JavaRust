@@ -1,4 +1,4 @@
-use argon2::{password_hash::Error, Algorithm, Argon2, Version};
+use argon2::{password_hash::Error, Algorithm, Argon2, Params, Version};
 use once_cell::sync::OnceCell;
 use rand_core::RngCore;
 
@@ -15,11 +15,9 @@ const HASH_LENGTH: usize = 32;
 static ARGON2: OnceCell<Argon2> = OnceCell::new();
 
 pub fn init() {
+    let params = Params::new(MEMORY_COST, TIME_COST, PARALLELISM, None).expect("argon2 init error");
     ARGON2
-        .set(
-            Argon2::new(None, TIME_COST, MEMORY_COST, PARALLELISM, VERSION)
-                .expect("argon2 init error"),
-        )
+        .set(Argon2::new(ALGORITHM, VERSION, params))
         .map_err(|_| ())
         .expect("already initialized");
 }
@@ -34,10 +32,8 @@ pub fn hash(password: &str, password_salt: &PasswordSalt) -> Result<PasswordHash
     let mut hash = [0; HASH_LENGTH];
 
     ARGON2.get().expect("not initialized").hash_password_into(
-        ALGORITHM,
         password.as_ref(),
         password_salt.0.as_ref(),
-        &[],
         &mut hash,
     )?;
     Ok(Vec::from(hash).into())
