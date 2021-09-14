@@ -1,4 +1,4 @@
-use crate::datetime::Datetime;
+use crate::date_time::DateTime;
 use base64_serde::base64_serde_type;
 use derive_more::{Display, From, Into};
 use serde::Serialize;
@@ -9,8 +9,8 @@ base64_serde_type!(Base64UrlSafe, base64::URL_SAFE);
 #[serde(rename_all = "camelCase")]
 pub struct Account {
     pub id: Id,
-    pub created: Datetime,
-    pub updated: Datetime,
+    pub created: DateTime,
+    pub updated: DateTime,
     pub username: Username,
     pub email: Email,
     pub password_hash: PasswordHash,

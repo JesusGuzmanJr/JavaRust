@@ -1,11 +1,11 @@
 use uuid::Uuid;
 
-use crate::datetime::Datetime;
+use crate::date_time::DateTime;
 
 pub struct AccountEntity {
     pub id: Uuid,
-    pub created: Datetime,
-    pub updated: Datetime,
+    pub created: DateTime,
+    pub updated: DateTime,
     pub username: String,
     pub email: String,
     pub password_hash: Vec<u8>,

@@ -16,7 +16,6 @@ public class Account {
     private String email;
     private byte[] passwordHash;
     private byte[] passwordSalt;
-
     private Status status;
 
     public UUID getId() {
