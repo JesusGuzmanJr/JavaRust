@@ -11,7 +11,7 @@ public class Vehicle {
     private UUID id;
     private String licensePlate;
     private String vin;
-    private String year;
+    private Integer year;
     private String make;
     private String model;
     private VehicleClass vehicleClass;
@@ -40,11 +40,11 @@ public class Vehicle {
         this.vin = vin;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return this.year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

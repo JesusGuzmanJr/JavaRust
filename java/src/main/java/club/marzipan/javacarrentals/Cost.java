@@ -11,7 +11,7 @@ public class Cost {
     private VehicleClass vehicleClass;
     private UUID vehicleId;
     private Integer UsdCents;
-    private ZonedDateTime dateTime;
+    private ZonedDateTime date;
 
     public UUID getId() {
         return this.id;
@@ -45,12 +45,12 @@ public class Cost {
         this.UsdCents = UsdCents;
     }
 
-    public ZonedDateTime getDateTime() {
-        return this.dateTime;
+    public ZonedDateTime getDate() {
+        return this.date;
     }
 
-    public void setDateTime(ZonedDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
     }
 
 }
