@@ -4,8 +4,6 @@ edition = "2018"
 name = "rust-car-service"
 version = "0.1.0"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 actix-web = {version = "3.3.2", features = ["rustls"]}
 argon2 = "0.3.1"

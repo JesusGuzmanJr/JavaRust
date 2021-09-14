@@ -34,7 +34,3 @@ Use this enable type checks against the database schema during development. Make
 Use this to revert a migration.
 
     DATABASE_URL="postgres://localhost:5432/car_rentals" cargo sqlx migrate revert
-
-You'll want to update the Rust toolchain every six weeks.
-
-    rustup update

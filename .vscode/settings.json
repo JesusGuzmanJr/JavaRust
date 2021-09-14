@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "abcdefghijklmnopqrstuvwxyz",
         "actix",
         "autowired",
         "backtrace",
@@ -10,6 +11,7 @@
         "codegen",
         "concat",
         "createdb",
+        "dashmap",
         "datetime",
         "deserialization",
         "devel",
@@ -32,6 +34,7 @@
         "servlet",
         "sqlx",
         "symlink",
+        "taskset",
         "thiserror",
         "toolchain",
         "toolchains"
