@@ -9,8 +9,8 @@ use serde::Serialize;
 #[serde(rename_all = "camelCase")]
 pub struct Cost {
     pub id: Id,
-    pub vehicle_class: VehicleClass,
-    pub vehicle_id: VehicleId,
+    pub vehicle_class: Option<VehicleClass>,
+    pub vehicle_id: Option<VehicleId>,
     pub usd_cents: i64,
     pub date_time: DateTime,
 }

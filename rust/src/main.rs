@@ -7,6 +7,8 @@ mod account_mapper;
 mod account_repository;
 mod config;
 mod cost;
+mod cost_entity;
+mod cost_repository;
 mod create_account;
 mod date_time;
 mod error_handler;
@@ -14,7 +16,11 @@ mod info_endpoint;
 mod password_hasher;
 mod persistance;
 mod reservation;
+mod reservation_entity;
+mod reservation_repository;
 mod vehicle;
+mod vehicle_entity;
+mod vehicle_repository;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
