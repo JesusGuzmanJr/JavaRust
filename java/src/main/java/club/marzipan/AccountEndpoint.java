@@ -1,4 +1,4 @@
-package club.marzipan.javacarrentals;
+package club.marzipan;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;

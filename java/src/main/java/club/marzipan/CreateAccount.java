@@ -1,4 +1,4 @@
-package club.marzipan.javacarrentals;
+package club.marzipan;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
