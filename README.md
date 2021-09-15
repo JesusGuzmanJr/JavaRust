@@ -48,7 +48,7 @@ Rust earned the top spot as the “most-loved” programming language for the si
 [Actix Web]: https://actix.rs
 
 [pom.xml]: java/pom.xml
-[cargo.toml]: rust/cargo.toml
+[cargo.toml]: rust/Cargo.toml
 
 [application.properties]: java/src/main/resources/application.properties
 [config.ron]: rust/config.ron
