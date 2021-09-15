@@ -15,7 +15,6 @@ mod persistance;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    print!("{}", include_str!("../banner.txt"));
     color_backtrace::install();
     let config = config::app_config();
 
