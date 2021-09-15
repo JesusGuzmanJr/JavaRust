@@ -1,6 +1,6 @@
 (
     // logging
-    logging_directive: "info,rust-car-service=trace",
+    logging_directive: "info",
 
     // http
     address: "0.0.0.0",
