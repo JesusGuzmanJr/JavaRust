@@ -9,7 +9,7 @@
     graceful_shutdown_timeout_sec: 3,
 
     // database
-    postgres_uri_env_var_name: "CAR_RENTALS_POSTGRES_URI",
+    postgres_uri_env_var_name: "JAVA_RUST_POSTGRES_URI",
     postgres_max_pool_size: 2,
     postgres_min_pool_size: 2,
     postgres_max_life_time_minutes: 10,
