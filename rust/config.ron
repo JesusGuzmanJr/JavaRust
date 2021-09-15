@@ -10,8 +10,8 @@
 
     // database
     postgres_uri_env_var_name: "JAVA_RUST_POSTGRES_URI",
-    postgres_max_pool_size: 2,
-    postgres_min_pool_size: 2,
+    postgres_max_pool_size: 4,
+    postgres_min_pool_size: 4,
     postgres_max_life_time_minutes: 10,
     postgres_timeout_sec: 5,
 
