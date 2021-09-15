@@ -23,10 +23,6 @@ fn main() -> Result<(), GooseError> {
             taskset!("Create Accounts").register_task(task!(create_account).set_weight(10)?),
         )
         .execute()?;
-    println!("Account ids:");
-    account_ids()
-        .iter()
-        .for_each(|id| println!("{}", id.as_str()));
     Ok(())
 }
 

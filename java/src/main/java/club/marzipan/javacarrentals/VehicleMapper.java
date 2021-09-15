@@ -14,22 +14,51 @@ public class VehicleMapper {
         vehicle.setVin(vehicleEntity.getVin());
         vehicle.setYear(vehicleEntity.getYear());
         vehicle.setMake(vehicleEntity.getMake());
-        if (vehicleEntity.getVehicleClass() != null) {
-            switch (vehicleEntity.getVehicleClass()) {
-                case standard_small:
-                    vehicle.setVehicleClass(Vehicle.VehicleClass.standard_small);
-                    break;
-                case standard_large:
-                    vehicle.setVehicleClass(Vehicle.VehicleClass.standard_large);
-                    break;
-                case premium_small:
-                    vehicle.setVehicleClass(Vehicle.VehicleClass.premium_small);
-                    break;
-                case premium_large:
-                    vehicle.setVehicleClass(Vehicle.VehicleClass.premium_large);
-                    break;
-            }
-        }
+        vehicle.setVehicleClass(mapEntityToApi(vehicleEntity.getVehicleClass()));
         return vehicle;
+    }
+
+    public Vehicle.VehicleClass mapEntityToApi(VehicleEntity.VehicleClass vehicleClass) {
+        if (vehicleClass == null) {
+            return null;
+        }
+        switch (vehicleClass) {
+            case standard_small:
+                return Vehicle.VehicleClass.standard_small;
+
+            case standard_large:
+                return Vehicle.VehicleClass.standard_large;
+
+            case premium_small:
+                return Vehicle.VehicleClass.premium_small;
+
+            case premium_large:
+                return Vehicle.VehicleClass.premium_large;
+
+            default:
+                return null;
+        }
+    }
+
+    public VehicleEntity.VehicleClass mapApiToEntity(Vehicle.VehicleClass vehicleClass) {
+        if (vehicleClass == null) {
+            return null;
+        }
+        switch (vehicleClass) {
+            case standard_small:
+                return VehicleEntity.VehicleClass.standard_small;
+
+            case standard_large:
+                return VehicleEntity.VehicleClass.standard_large;
+
+            case premium_small:
+                return VehicleEntity.VehicleClass.premium_small;
+
+            case premium_large:
+                return VehicleEntity.VehicleClass.premium_large;
+
+            default:
+                return null;
+        }
     }
 }

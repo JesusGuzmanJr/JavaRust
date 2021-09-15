@@ -4,17 +4,12 @@ import java.util.UUID;
 
 public class Vehicle {
 
-    public enum VehicleClass {
-        standard_small, standard_large, premium_small, premium_large
-    }
-
     private UUID id;
     private String licensePlate;
     private String vin;
     private Integer year;
     private String make;
     private String model;
-    private VehicleClass vehicleClass;
 
     public UUID getId() {
         return this.id;
@@ -62,14 +57,6 @@ public class Vehicle {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public VehicleClass getVehicleClass() {
-        return this.vehicleClass;
-    }
-
-    public void setVehicleClass(VehicleClass vehicleClass) {
-        this.vehicleClass = vehicleClass;
     }
 
 }

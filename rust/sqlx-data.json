@@ -74,6 +74,248 @@
       ]
     }
   },
+  "39a8b35ac59f9ea8fe8d2f57216f1cde01bba64bf9cd73b20aad214074a263ed": {
+    "query": "SELECT id, account_id, vehicle_id, start_date_time, end_date_time FROM reservation WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 1,
+          "name": "account_id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 2,
+          "name": "vehicle_id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 3,
+          "name": "start_date_time",
+          "type_info": "Timestamptz"
+        },
+        {
+          "ordinal": 4,
+          "name": "end_date_time",
+          "type_info": "Timestamptz"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "52cb0df38e443fe215573013d2825f7881246a188f26f9eccde76b3cd6047b45": {
+    "query": "INSERT INTO reservation VALUES ($1, $2, $3, $4, $5)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Uuid",
+          "Uuid",
+          "Timestamptz",
+          "Timestamptz"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "5e5e2ae3fc7645a940635e3da96ca6a501112c153935bf2357ce7efbb35e4bea": {
+    "query": "INSERT INTO vehicle VALUES ($1, $2, $3, $4, $5, $6, $7)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          "Text",
+          "Text",
+          "Int4",
+          "Text",
+          "Text",
+          {
+            "Custom": {
+              "name": "vehicle_class",
+              "kind": {
+                "Enum": [
+                  "standard_small",
+                  "standard_large",
+                  "premium_small",
+                  "premium_large"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "667b014c2dd5d08c635fed586149e67ddf32e4ec9812e0cd8ccb33191a5c6cd0": {
+    "query": "INSERT INTO cost VALUES ($1, $2, $3, $4, $5)",
+    "describe": {
+      "columns": [],
+      "parameters": {
+        "Left": [
+          "Uuid",
+          {
+            "Custom": {
+              "name": "vehicle_class",
+              "kind": {
+                "Enum": [
+                  "standard_small",
+                  "standard_large",
+                  "premium_small",
+                  "premium_large"
+                ]
+              }
+            }
+          },
+          "Uuid",
+          "Int4",
+          "Timestamptz"
+        ]
+      },
+      "nullable": []
+    }
+  },
+  "6e11ff1bb70f285f10edb1c06e9334ef663291f6e03e971940a66e93d5761576": {
+    "query": "SELECT id, license_plate, vin, year, make, model, vehicle_class AS \"vehicle_class!: VehicleClass\" FROM vehicle WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 1,
+          "name": "license_plate",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 2,
+          "name": "vin",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 3,
+          "name": "year",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 4,
+          "name": "make",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 5,
+          "name": "model",
+          "type_info": "Text"
+        },
+        {
+          "ordinal": 6,
+          "name": "vehicle_class!: VehicleClass",
+          "type_info": {
+            "Custom": {
+              "name": "vehicle_class",
+              "kind": {
+                "Enum": [
+                  "standard_small",
+                  "standard_large",
+                  "premium_small",
+                  "premium_large"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "dd451237f5fc8010f8ed7954e894ebc35692d122c012eb29371c49868080501a": {
+    "query": "SELECT id, vehicle_class AS \"vehicle_class?: VehicleClass\", vehicle_id, usd_cents, date FROM cost WHERE id = $1",
+    "describe": {
+      "columns": [
+        {
+          "ordinal": 0,
+          "name": "id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 1,
+          "name": "vehicle_class?: VehicleClass",
+          "type_info": {
+            "Custom": {
+              "name": "vehicle_class",
+              "kind": {
+                "Enum": [
+                  "standard_small",
+                  "standard_large",
+                  "premium_small",
+                  "premium_large"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "ordinal": 2,
+          "name": "vehicle_id",
+          "type_info": "Uuid"
+        },
+        {
+          "ordinal": 3,
+          "name": "usd_cents",
+          "type_info": "Int4"
+        },
+        {
+          "ordinal": 4,
+          "name": "date",
+          "type_info": "Timestamptz"
+        }
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      },
+      "nullable": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    }
+  },
   "f87ecf392f7f59ced9cc3272a4291de32dcb6a6e0c5232fc5b81c93a8d53ecf2": {
     "query": "INSERT INTO account VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
     "describe": {
