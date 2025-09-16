@@ -18,8 +18,6 @@ Rust earned the top spot as the “most-loved” programming language for the si
 
 | Stack                | [Java]                            | [Rust]                              |
 | -------------------- | --------------------------------- | ----------------------------------- |
-| domain name          | java.marzipan.club                | rust.marzipan.club                  |
-| health endpoint      | http://java.marzipan.club/info    | http://rust.marzipan.club/info      |
 | language             | [Java SE 11]                      | [Rust 1.55.0]                       |
 | compiler             | javac 11.0.12                     | rustc 1.55.0 (c8dfcfe04 2021-09-06) |
 | compilation target   | java bytecode 55.0                | stable-x86_64-unknown-linux-gnu     |
